@@ -52,7 +52,7 @@ function guardarProductos() {
         precio: precio,
     };
 
-    let listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
+    let listaProductos = JSON.parse(localStorage.getItem("listaProductos")) || [];
 
     listaProductos.push(producto);
 
@@ -65,7 +65,7 @@ function mostrarProductos() {
     const mostrarLista = document.getElementById("mostrarProducto");
     mostrarLista.innerHTML = "";
 
-    const listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
+    const listaProductos = JSON.parse(localStorage.getItem("listaProductos")) || [];
 
     if (listaProductos.length === 0) {
         mostrarLista.innerHTML = `
@@ -96,7 +96,7 @@ function mostrarProductos() {
 }
 
 function eliminarProducto(codigo) {
-    let listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
+    let listaProductos = JSON.parse(localStorage.getItem("listaProductos")) || [];
 
     let indiceAEliminar = -1;
     for (let i = 0; i < listaProductos.length; i++) {
